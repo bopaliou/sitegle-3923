@@ -41,8 +41,8 @@ export default function Realisations() {
     <>
       <PageHero
         eyebrow="Réalisations"
-        title="Huit chantiers de référence au Sénégal"
-        intro="Chaque projet est présenté avec son maître d'ouvrage, sa localisation et les quantités réellement posées : candélabres, kilomètres de réseau, puissance installée."
+        title="Nos chantiers de référence au Sénégal"
+        intro="Découvrez une sélection de nos réalisations en éclairage public, réseaux électriques et solaire, avec les photographies des ouvrages et les caractéristiques disponibles."
         image="/images/site/bourguiba-1.jpg"
         imageAlt="Candélabres d'éclairage public installés par GLE sur l'avenue Bourguiba à Dakar"
       />

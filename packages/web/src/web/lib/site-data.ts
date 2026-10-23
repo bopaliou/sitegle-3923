@@ -67,8 +67,8 @@ export const keyFigures = [
   { value: "2016", label: "Année de création" },
   { value: "2", label: "Pays d'implantation" },
   { value: "10", label: "Régions d'intervention" },
-  { value: "179", label: "Villages électrifiés en solaire" },
-  { value: "11", label: "Chantiers livrés" },
+  { value: "372", label: "Villages électrifiés" },
+  { value: "28", label: "Projets livrés" },
 ] as const;
 
 export const navigation = [
@@ -204,6 +204,33 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    slug: "eclairage-autopont-keur-massar",
+    title: "Réalisation de l'éclairage de l'autopont de Keur Massar",
+    shortTitle: "Autopont de Keur Massar",
+    category: "Éclairage public",
+    location: "Keur Massar, Sénégal",
+    summary:
+      "Éclairage de l'autopont de Keur Massar : candélabres le long de la chaussée et luminaires installés sous le tablier de l'ouvrage.",
+    specs: [
+      { label: "Ouvrage", value: "Autopont de Keur Massar" },
+      { label: "Intervention", value: "Éclairage public" },
+      { label: "Équipements", value: "Candélabres et luminaires sous tablier" },
+    ],
+    sections: [
+      {
+        heading: "L'éclairage de la chaussée et du dessous de l'ouvrage",
+        body: [
+          "Global Engineering a réalisé l'éclairage de l'autopont de Keur Massar. Les candélabres disposés le long de la chaussée accompagnent les voies de circulation et les accès à l'ouvrage.",
+          "Des luminaires sont également installés sous le tablier, sur la structure métallique de l'autopont. Les deux photographies présentent la vue d'ensemble de la chaussée équipée et un détail de l'éclairage sous l'ouvrage.",
+        ],
+      },
+    ],
+    images: [
+      { src: "/images/site/keur-massar-1.jpg", alt: "Vue de l'autopont de Keur Massar équipé de candélabres le long de la chaussée" },
+      { src: "/images/site/keur-massar-2.jpg", alt: "Luminaires allumés fixés à la structure métallique sous le tablier de l'autopont de Keur Massar" },
+    ],
+  },
   {
     slug: "electrification-rurale-reseaux-electriques",
     title:
@@ -1072,12 +1099,25 @@ export const mediaVideos: MediaVideo[] = [
 
 /** Photos de la vie de l'entreprise : bureaux, séminaires, réunions d'équipe. */
 export const companyLifePhotos: { src: string; alt: string }[] = [
+  { src: "/images/site/visite-usine-sunlight-grece.jpg", alt: "Visite de Global Engineering pour la réception qualité à l'usine Sunlight en Grèce : accueil aux couleurs de GLE et de Sunlight" },
   { src: "/images/site/equipe-3.jpg", alt: "Réunion des équipes GLE en tenue de chantier" },
   { src: "/images/site/equipe-2.jpg", alt: "Séminaire d'entreprise GLE réunissant les équipes techniques" },
   { src: "/images/site/equipe-4.jpg", alt: "Agents GLE en uniforme lors d'une session de formation interne" },
   { src: "/images/site/equipe-5.jpg", alt: "Équipes GLE rassemblées pour une séance d'information sécurité" },
   { src: "/images/site/equipe-6.jpg", alt: "Photo de groupe des équipes GLE lors du séminaire annuel" },
   { src: "/images/site/equipe-1.jpg", alt: "Assemblée réunissant les équipes GLE et les habitants d'un village" },
+];
+
+/** Photos fournies par GLE : installations en Casamance et moyens de terrain. */
+export const fieldPhotos = [
+  { src: "/images/site/casamance-transformateur.jpg", title: "L'énergie au plus près des villages", caption: "En Casamance, un transformateur haut de poteau relie le réseau moyenne tension aux besoins locaux en basse tension.", group: "Réseaux MT/BT" },
+  { src: "/images/site/gle-tenue-terrain.jpg", title: "Les couleurs d'un engagement de terrain", caption: "Une tenue aux couleurs de Global Engineering : derrière chaque installation, des femmes et des hommes mobilisés sur le terrain.", group: "Vie de l'entreprise" },
+  { src: "/images/site/casamance-local-electrique.jpg", title: "Au cœur de l'installation électrique", caption: "En Casamance, une vue du local électrique et de ses équipements, avec une présence GLE au plus près des installations.", group: "Réseaux MT/BT" },
+  { src: "/images/site/casamance-poste-250kva.jpg", title: "250 kVA pour accompagner les besoins locaux", caption: "Raccordement d'un poste de transformation de 250 kVA à Kolda : les équipes GLE réunies autour d'un maillon essentiel du réseau électrique.", group: "Réseaux MT/BT" },
+  { src: "/images/site/gle-camion-grue.jpg", title: "Des moyens à la hauteur des chantiers", caption: "Camion équipé d'une grue : transport et manutention se conjuguent pour acheminer les équipements sur les chantiers.", group: "Vie de l'entreprise" },
+  { src: "/images/site/gle-transport-poteaux.jpg", title: "Du dépôt au chantier, la logistique en action", caption: "Transport de poteaux et de câbles électriques : une étape concrète entre l'approvisionnement et la construction des réseaux.", group: "Vie de l'entreprise" },
+  { src: "/images/site/gle-pickup-terrain.jpg", title: "La mobilité au service du terrain", caption: "Un véhicule de liaison aux couleurs de GLE pour accompagner les déplacements des équipes entre les sites d'intervention.", group: "Vie de l'entreprise" },
+  { src: "/images/site/gle-flotte-pickups.jpg", title: "Des équipes mobiles, des chantiers connectés", caption: "Les pickups de liaison Global Engineering illustrent les moyens de déplacement mobilisés pour le suivi des chantiers.", group: "Vie de l'entreprise" },
 ];
 
 export const values = [

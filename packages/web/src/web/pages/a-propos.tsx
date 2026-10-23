@@ -2,9 +2,9 @@ import { Quote, Target, Compass } from "lucide-react";
 import {
   company,
   companyLifePhotos,
+  fieldPhotos,
   keyFigures,
   partners,
-  team,
   values,
 } from "@/lib/site-data";
 import { useReveal } from "@/hooks/use-reveal";
@@ -154,26 +154,30 @@ export default function APropos() {
           title="Les femmes et les hommes qui font tourner les chantiers"
           intro="Direction, bureau d'études, QHSE, achats et administration : une structure complète réunie au siège de Dakar, en appui permanent des équipes de pose."
         />
-        <div className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
-          {team.map((member) => (
-            <article key={member.name} className="reveal">
-              <img
-                src={member.photo}
-                alt={`${member.name}, ${member.role} chez Global Engineering`}
-                loading="lazy"
-                className="aspect-[4/5] w-full rounded-[8px] object-cover"
-              />
-              <h3 className="mt-4 font-display text-sm font-semibold text-navy-900">
-                {member.name}
-              </h3>
-              <p className="mt-1 text-xs text-slate">{member.role}</p>
-            </article>
-          ))}
-        </div>
       </Section>
 
       {/* ------------------------------------------------- vie de l'entreprise */}
       <Section tone="alt">
+        <div className="mb-16 grid gap-8 lg:grid-cols-2 lg:items-center">
+          <img
+            src="/images/site/visite-usine-sunlight-grece.jpg"
+            alt="Accueil de Global Engineering à l'usine Sunlight en Grèce pour une visite de réception qualité"
+            loading="lazy"
+            className="reveal mx-auto max-h-[520px] w-full rounded-[8px] object-contain"
+          />
+          <div>
+            <SectionHead
+              eyebrow="Réception qualité"
+              title="Visite de l'usine Sunlight en Grèce"
+            />
+            <p className="reading mt-6 text-slate">
+              Global Engineering a effectué une visite de l'usine Sunlight en
+              Grèce dans le cadre d'une réception qualité. Ce déplacement
+              s'inscrit dans notre démarche de suivi de la qualité des
+              équipements auprès des fabricants.
+            </p>
+          </div>
+        </div>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHead
             eyebrow="Vie de l'entreprise"
@@ -185,7 +189,7 @@ export default function APropos() {
           </Cta>
         </div>
         <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3">
-          {companyLifePhotos.slice(0, 6).map((photo) => (
+          {companyLifePhotos.filter((photo) => photo.src !== "/images/site/visite-usine-sunlight-grece.jpg").slice(0, 6).map((photo) => (
             <img
               key={photo.src}
               src={photo.src}
@@ -198,6 +202,27 @@ export default function APropos() {
       </Section>
 
       {/* ------------------------------------------------------------ valeurs */}
+      <Section tone="paper">
+        <SectionHead
+          eyebrow="Sur le terrain"
+          title="Le savoir-faire en images, les moyens en action"
+          intro="Installations électriques en Casamance, présence des équipes et logistique de chantier : découvrez les coulisses des interventions de Global Engineering."
+        />
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          {fieldPhotos.map((photo) => (
+            <figure key={photo.src} className="reveal overflow-hidden rounded-[8px] border border-line">
+              <div className="flex h-[340px] items-center justify-center bg-paper-alt p-3">
+                <img src={photo.src} alt={photo.caption} loading="lazy" className="h-full w-full object-contain" />
+              </div>
+              <figcaption className="p-6">
+                <h3 className="font-display text-lg font-semibold text-navy-900">{photo.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate">{photo.caption}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </Section>
+
       <Section tone="paper">
         <SectionHead
           eyebrow="Nos valeurs"

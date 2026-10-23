@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 import {
   companyLifePhotos,
+  fieldPhotos,
   mediaVideos,
   projects,
   projectCategories,
@@ -30,6 +31,12 @@ type Photo = {
 const LIFE_GROUP = "Vie de l'entreprise";
 
 const allPhotos: Photo[] = [
+  ...fieldPhotos.map((photo) => ({
+    src: photo.src,
+    alt: photo.caption,
+    group: photo.group,
+    context: photo.title,
+  })),
   ...projects.flatMap((project) =>
     project.images.map((image) => ({
       src: image.src,
