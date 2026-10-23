@@ -46,6 +46,7 @@ export default function Contact() {
     location: "",
     message: "",
     howHeard: "",
+    website: "",
   });
   const submit = useSubmitContact();
 
@@ -71,6 +72,7 @@ export default function Contact() {
       location: form.location || undefined,
       message: form.message,
       howHeard: form.howHeard || undefined,
+      website: form.website || undefined,
     });
   };
 
@@ -157,6 +159,7 @@ export default function Contact() {
                       location: "",
                       message: "",
                       howHeard: "",
+                      website: "",
                     });
                   }}
                   className="mt-6 font-display text-sm font-semibold text-navy hover:text-orange-700"
@@ -166,6 +169,17 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={onSubmit} className="mt-8 grid gap-5 sm:grid-cols-2">
+                {/* Champ piège anti-spam : invisible pour les visiteurs. */}
+                <div aria-hidden="true" className="absolute -left-[9999px] h-0 overflow-hidden">
+                  <label htmlFor="website">Site web</label>
+                  <input
+                    id="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={form.website}
+                    onChange={(event) => update("website")(event.target.value)}
+                  />
+                </div>
                 <div>
                   <label className={labelClass} htmlFor="name">
                     Nom et prénom *

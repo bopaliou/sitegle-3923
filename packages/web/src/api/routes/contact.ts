@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { desc } from "drizzle-orm";
 import { base } from "../__core/app";
 import { db } from "../database";
 import * as schema from "../database/schema";
@@ -34,13 +33,4 @@ export const contact = {
 
     return { id: row?.id ?? null, receivedAt: new Date() };
   }),
-
-  /** Dernières demandes reçues (usage interne). */
-  list: base.handler(() =>
-    db
-      .select()
-      .from(schema.contactSubmissions)
-      .orderBy(desc(schema.contactSubmissions.createdAt))
-      .limit(50),
-  ),
 };
