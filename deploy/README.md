@@ -44,7 +44,7 @@ deux lignes « Forcer HTTPS » au début de `public_html/.htaccess`.
 ## Mises à jour
 
 Le propriétaire modifie le site sur Runable, qui alimente son dépôt
-`MbayKebe/sitegle-3923`. Ce dépôt-ci est un fork qui ajoute les réglages de
+`MbayKebe/NewGle-9165` (anciennement `sitegle-3923`). Ce dépôt-ci est un fork qui ajoute les réglages de
 l'hébergement. Pour intégrer ses modifications, vérifier les réglages,
 recompiler et préparer l'archive en une commande (Git Bash) :
 

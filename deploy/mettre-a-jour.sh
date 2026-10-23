@@ -7,21 +7,26 @@
 #   bash deploy/mettre-a-jour.sh            # demande avant de pousser sur le fork
 #   bash deploy/mettre-a-jour.sh --push     # pousse sur le fork sans demander
 #   bash deploy/mettre-a-jour.sh --no-merge # recompile sans récupérer upstream
+#   bash deploy/mettre-a-jour.sh --upstream https://github.com/MbayKebe/AUTRE.git
+#       # si Runable exporte vers un nouveau dépôt (même historique)
 
 set -euo pipefail
 
-UPSTREAM_URL="https://github.com/MbayKebe/sitegle-3923.git"
+UPSTREAM_URL="https://github.com/MbayKebe/NewGle-9165.git"
+NEW_UPSTREAM=""
 BRANCH="main"
 WEB="packages/web"
 ZIP="deploy/site-gle-public_html.zip"
 
 PUSH="ask"
 MERGE=1
-for arg in "$@"; do
+while [ $# -gt 0 ]; do
+  arg="$1"; shift
   case "$arg" in
+    --upstream) NEW_UPSTREAM="${1:?URL du dépôt attendue après --upstream}"; shift ;;
     --push) PUSH="yes" ;;
     --no-merge) MERGE=0 ;;
-    -h|--help) sed -n '2,10p' "$0"; exit 0 ;;
+    -h|--help) sed -n '2,12p' "$0"; exit 0 ;;
     *) echo "Option inconnue : $arg" >&2; exit 2 ;;
   esac
 done
@@ -45,9 +50,13 @@ command -v bun >/dev/null || fail "Bun est introuvable (https://bun.sh)."
 ok "branche $BRANCH propre"
 
 if ! git remote get-url upstream >/dev/null 2>&1; then
-  git remote add upstream "$UPSTREAM_URL"
+  git remote add upstream "${NEW_UPSTREAM:-$UPSTREAM_URL}"
   ok "dépôt du propriétaire ajouté sous le nom « upstream »"
+elif [ -n "$NEW_UPSTREAM" ]; then
+  git remote set-url upstream "$NEW_UPSTREAM"
+  ok "upstream pointe désormais vers $NEW_UPSTREAM"
 fi
+ok "dépôt du propriétaire : $(git remote get-url upstream)"
 # Le dépôt du propriétaire reste en lecture seule depuis ce poste.
 git remote set-url --push upstream NE_PAS_POUSSER_ICI
 
